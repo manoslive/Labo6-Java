@@ -22,7 +22,7 @@ public class Extract {
             BufferedReader in = new BufferedReader(new FileReader(file));
             String str;
             while ((str = in.readLine()) != null) {
-                while()
+                while(str.lastIndexOf(startBaliseLien) != str.indexOf(startBaliseLien))
                 {
                     String lien=null;
                     contentBuilder.append(lien);
