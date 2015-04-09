@@ -7,15 +7,22 @@ import java.io.IOException;
  */
 
 public class Extract {
-    StringBuilder contentBuilder = new StringBuilder();
-    try {
-        BufferedReader in = new BufferedReader(new FileReader("mypage.html"));
-        String str;
-        while ((str = in.readLine()) != null) {
-            contentBuilder.append(str);
+    static void main(String[] args) {
+        StringBuilder contentBuilder = new StringBuilder();
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("mypage.html"));
+            String str;
+            while ((str = in.readLine()) != null) {
+                contentBuilder.append(str);
+            }
+            in.close();
+        } catch (
+                IOException e
+                )
+
+        {
         }
-        in.close();
-    } catch (IOException e) {
+
+        String content = contentBuilder.toString();
     }
-    String content = contentBuilder.toString();
 }
