@@ -9,14 +9,14 @@ import java.io.IOException;
  */
 
 public class Extract {
-    String startBaliseLien = "<a>";
-    String finBaliseLien = "<\\a>";
-
     static void main(String[] args) {
         monFileWriter(monFileReader(args[0]), args[1]);
     }
     static String monFileReader(String file)
     {
+        String startBaliseLien = "<a href";
+        String finBaliseLien = "</a>";
+
         StringBuilder contentBuilder = new StringBuilder();
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
