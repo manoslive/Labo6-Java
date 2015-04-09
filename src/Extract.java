@@ -25,10 +25,10 @@ public class Extract {
             while ((str = in.readLine()) != null) {
                 do
                 {
-                    String lien=null;
+                    String lien = null;
                     startIndex = str.indexOf(startBaliseLien, startIndex);
                     stopIndex = str.indexOf(finBaliseLien, stopIndex);
-                    str.substring(startIndex,stopIndex);
+                    lien = str.substring(startIndex,stopIndex);
                     contentBuilder.append(lien);
                 }while(str.lastIndexOf(startBaliseLien) != startIndex);
             }
