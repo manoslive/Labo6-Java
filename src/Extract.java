@@ -30,7 +30,7 @@ public class Extract {
                     stopIndex = str.indexOf(finBaliseLien, stopIndex);
                     str.substring(startIndex,stopIndex);
                     contentBuilder.append(lien);
-                }while(str.lastIndexOf(startBaliseLien) != index);
+                }while(str.lastIndexOf(startBaliseLien) != startIndex);
             }
             in.close();
         } catch (
