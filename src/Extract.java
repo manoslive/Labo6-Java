@@ -16,7 +16,8 @@ public class Extract {
     {
         final String startBaliseLien = "<a href";
         final String finBaliseLien = "</a>";
-        int index = 0;
+        int startIndex = 0;
+        int stopIndex = 0;
         StringBuilder contentBuilder = new StringBuilder();
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
