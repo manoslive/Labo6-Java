@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -24,5 +26,30 @@ public class Extract {
         }
 
         String content = contentBuilder.toString();
+    }
+
+    public void FileWriter(String text, String file)
+    {
+        BufferedWriter writer = null;
+        try
+        {
+            writer = new BufferedWriter( new FileWriter( file));
+            writer.write( text);
+
+        }
+        catch ( IOException e)
+        {
+        }
+        finally
+        {
+            try
+            {
+                if ( writer != null)
+                    writer.close( );
+            }
+            catch ( IOException e)
+            {
+            }
+        }
     }
 }
