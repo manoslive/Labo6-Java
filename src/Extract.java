@@ -4,15 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-/*
-    Fait par Emmanuel Beloin et Shaun Cooper
-    Le 09/04/15
+/**
+ * Created by Emmanuel on 2015-04-09.
  */
 
 public class Extract {
-    static void main(String[] args) {
+    String startBaliseLien = "<a>";
+    String finBaliseLien = "<\\a>";
 
-        monFileWriter(monFileReader(args[1]), args[2]);
+    static void main(String[] args) {
+        monFileWriter(monFileReader(args[0]), args[1]);
     }
     static String monFileReader(String file)
     {
@@ -21,7 +22,11 @@ public class Extract {
             BufferedReader in = new BufferedReader(new FileReader(file));
             String str;
             while ((str = in.readLine()) != null) {
-                contentBuilder.append(str);
+                while()
+                {
+                    String lien=null;
+                    contentBuilder.append(lien);
+                }
             }
             in.close();
         } catch (
