@@ -14,8 +14,8 @@ public class Extract {
     }
     static String monFileReader(String file)
     {
-        String startBaliseLien = "<a href";
-        String finBaliseLien = "</a>";
+        final String startBaliseLien = "<a href";
+        final String finBaliseLien = "</a>";
 
         StringBuilder contentBuilder = new StringBuilder();
         try {
