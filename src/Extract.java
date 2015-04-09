@@ -12,23 +12,28 @@ import java.io.IOException;
 public class Extract {
     static void main(String[] args) {
 
+        monFileWriter(monFileReader(args[1]), args[2]);
+    }
+    static String monFileReader(String file)
+    {
         StringBuilder contentBuilder = new StringBuilder();
         try {
-            BufferedReader in = new BufferedReader(new FileReader("mypage.html"));
+            BufferedReader in = new BufferedReader(new FileReader(file));
             String str;
             while ((str = in.readLine()) != null) {
                 contentBuilder.append(str);
-        }
+            }
             in.close();
-        } catch (IOException e)
+        } catch (
+                IOException e
+                )
+
         {
-
         }
-
         String content = contentBuilder.toString();
-}
-
-    public void FileWriter(String text, String file)
+        return content;
+    }
+    static void monFileWriter(String text, String file)
     {
         BufferedWriter writer = null;
         try
