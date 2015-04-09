@@ -9,8 +9,11 @@ import java.io.IOException;
  */
 
 public class Extract {
+    String startBaliseLien = "<a>";
+    String finBaliseLien = "<\\a>";
+
     static void main(String[] args) {
-        monFileWriter(monFileReader(args[1]), args[2]);
+        monFileWriter(monFileReader(args[0]), args[1]);
     }
     static String monFileReader(String file)
     {
@@ -19,7 +22,11 @@ public class Extract {
             BufferedReader in = new BufferedReader(new FileReader(file));
             String str;
             while ((str = in.readLine()) != null) {
-                contentBuilder.append(str);
+                while()
+                {
+                    String lien=null;
+                    contentBuilder.append(lien);
+                }
             }
             in.close();
         } catch (
