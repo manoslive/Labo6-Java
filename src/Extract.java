@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 
 public class Extract {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         monFileWriter(monFileReader(args[0]), args[1]);
     }
     static String monFileReader(String file)
