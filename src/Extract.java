@@ -16,14 +16,15 @@ public class Extract {
     {
         final String startBaliseLien = "<a href";
         final String finBaliseLien = "</a>";
-
+        int index = 0;
         StringBuilder contentBuilder = new StringBuilder();
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
             String str;
             while ((str = in.readLine()) != null) {
-                while(str.lastIndexOf(startBaliseLien) != str.indexOf(startBaliseLien, str.indexOf(startBaliseLien)))
+                while(str.lastIndexOf(startBaliseLien) != index)
                 {
+                    index = str.indexOf(startBaliseLien, index);
                     String lien=null;
                     contentBuilder.append(lien);
                 }
