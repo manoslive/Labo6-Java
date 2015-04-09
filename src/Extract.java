@@ -22,25 +22,26 @@ public class Extract {
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
             String str;
+            contentBuilder.append("<ul>");
             while ((str = in.readLine()) != null) {
                 do
                 {
                     String lien=null;
                     startIndex = str.indexOf(startBaliseLien, startIndex);
                     stopIndex = str.indexOf(finBaliseLien, stopIndex);
-                    lien = str.substring(startIndex,stopIndex) + "\\n";
+                    lien = "<li>" + str.substring(startIndex,stopIndex)+ "</li>" + "\\n";
                     contentBuilder.append(lien);
                 }while(str.lastIndexOf(startBaliseLien) != startIndex);
             }
             in.close();
-        } catch (
-                IOException e
-                )
-
-        {
+        } catch (IOException e){
         }
-        String content = contentBuilder.toString();
-        return content;
+        finally {
+            contentBuilder.append("<ul>");
+            String content = contentBuilder.toString();
+            return content;
+        }
+
     }
     static void monFileWriter(String text, String file)
     {
