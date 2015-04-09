@@ -20,10 +20,10 @@ public class Extract {
         int stopIndex = 0;
         StringBuilder contentBuilder = new StringBuilder();
         try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
+            BufferedReader reader = new BufferedReader(new FileReader(file));
             String str;
             contentBuilder.append("<ul>");
-            while ((str = in.readLine()) != null) {
+            while ((str = reader.readLine()) != null) {
                 do
                 {
                     String lien = null;
@@ -33,11 +33,11 @@ public class Extract {
                     contentBuilder.append(lien);
                 }while(str.lastIndexOf(startBaliseLien) != startIndex);
             }
-            in.close();
+            reader.close();
         } catch (IOException e){
         }
         finally {
-            contentBuilder.append("<ul>");
+            contentBuilder.append("</ul>");
             String content = contentBuilder.toString();
             return content;
         }
