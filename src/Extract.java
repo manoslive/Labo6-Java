@@ -39,7 +39,7 @@ public class Extract {
                         String lien = null;
                         startIndex = str.indexOf(startBaliseLien, startIndex);
                         stopIndex = str.indexOf(finBaliseLien, stopIndex);
-                        lien = "<li>" + str.substring(startIndex, stopIndex) + "</li>" + "\\n";
+                        lien = "<li>" + str.substring(startIndex, stopIndex) + "</li>";
                         contentBuilder.append(lien);
                     } while (str.lastIndexOf(startBaliseLien) != startIndex);
                 }
