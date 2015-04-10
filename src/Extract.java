@@ -25,7 +25,7 @@ public class Extract {
     {
         final String startBaliseLien = "<a href";
         final String finBaliseLien = "</a>";
-        String content = null;
+        String content = "";
         int startIndex = 0;
         int stopIndex = 0;
         StringBuilder contentBuilder = new StringBuilder();
@@ -41,14 +41,14 @@ public class Extract {
                         stopIndex = str.indexOf(finBaliseLien, stopIndex);
                         lien = "<li>" + str.substring(startIndex, stopIndex) + "</li>";
                         contentBuilder.append(lien);
-                        content = contentBuilder.toString();
-                        contentBuilder.delete(0,contentBuilder.length());
+                        content += contentBuilder.toString();
+                        contentBuilder.delete(0,contentBuilder.length() -1);
                     } while (str.lastIndexOf(startBaliseLien) != startIndex);
                 }
             }
             reader.close();
             contentBuilder.append("</ul>");
-            content = contentBuilder.toString();
+            content += contentBuilder.toString();
 
         } catch (IOException e){
         }
