@@ -5,7 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * Created by Emmanuel on 2015-04-09.
+ * Created by Emmanuel Beloin & Shaun Cooper
+ * 09/04/15
  */
 
 public class Extract {
@@ -48,8 +49,8 @@ public class Extract {
         BufferedWriter writer = null;
         try
         {
-            writer = new BufferedWriter( new FileWriter( file));
-            writer.write( text);
+            writer = new BufferedWriter( new FileWriter(file));
+            writer.write(text);
 
         }
         catch ( IOException e)
