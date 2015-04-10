@@ -42,12 +42,17 @@ public class Extract {
                         String lien = null;
                         startIndex = str.indexOf(startBaliseLien, startIndex);
                         stopIndex = str.indexOf(finBaliseLien, stopIndex);
-                        while(stopIndex == -1)
-                        {
+                        if(stopIndex == -1){
                             flagMultiLigne = true;
                             lien += str.substring(startIndex,str.length());
                             str = reader.readLine();
+                        }
+                        while(stopIndex == -1)
+                        {
+                            lien += str.substring(0,str.length());
+                            str = reader.readLine();
                             stopIndex = str.indexOf(finBaliseLien, stopIndex);
+
                             // str.substring(0,stopIndex + 4);
                         }
                         if(flagMultiLigne)
