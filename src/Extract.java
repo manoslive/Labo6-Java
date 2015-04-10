@@ -39,12 +39,12 @@ public class Extract {
                 numLigne++;
                 if (str.indexOf(startBaliseLien, startIndex) != -1) {
                     do {
-                        String lien = null;
+                        String lien = "";
                         startIndex = str.indexOf(startBaliseLien, startIndex);
                         stopIndex = str.indexOf(finBaliseLien, stopIndex);
                         if (stopIndex == -1) {
                             flagMultiLigne = true;
-                            lien += str.substring(startIndex, str.length());
+                            lien += "<li>" + str.substring(startIndex, str.length());
                             str = reader.readLine();
                             stopIndex = str.indexOf(finBaliseLien);
                         }
@@ -59,8 +59,10 @@ public class Extract {
                         if (flagMultiLigne) {
                             lien += str.substring(0, stopIndex + 4) + "</li>" + "\n";
                         }
+                        else{
+                            lien = "<li>" + str.substring(startIndex, stopIndex + 4) + "</li>" + "\n";
+                        }
                         flagMultiLigne = false;
-                        lien = "<li>" + str.substring(startIndex, stopIndex + 4) + "</li>" + "\n";
                         startIndex = stopIndex + 4;
                         stopIndex += 4;
                         contentBuilder.append(lien);
