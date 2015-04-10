@@ -25,6 +25,7 @@ public class Extract {
     {
         final String startBaliseLien = "<a href";
         final String finBaliseLien = "</a>";
+        String content = null;
         int startIndex = 0;
         int stopIndex = 0;
         StringBuilder contentBuilder = new StringBuilder();
@@ -44,10 +45,11 @@ public class Extract {
             }
             reader.close();
             contentBuilder.append("</ul>");
-            String content = contentBuilder.toString();
-            return content;
+            content = contentBuilder.toString();
+
         } catch (IOException e){
         }
+        return content;
     }
     static void monFileWriter(String text, String file)
     {
