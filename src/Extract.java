@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
@@ -28,20 +27,20 @@ public class Extract {
         int stopIndex = 0;
         StringBuilder contentBuilder = new StringBuilder();
         try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
+            BufferedReader reader = new BufferedReader(new FileReader(file));
             String str;
             contentBuilder.append("<ul>");
-            while ((str = in.readLine()) != null) {
+            while ((str = reader.readLine()) != null) {
                 do
                 {
-                    String lien=null;
+                    String lien = null;
                     startIndex = str.indexOf(startBaliseLien, startIndex);
                     stopIndex = str.indexOf(finBaliseLien, stopIndex);
                     lien = "<li>" + str.substring(startIndex,stopIndex)+ "</li>" + "\\n";
                     contentBuilder.append(lien);
                 }while(str.lastIndexOf(startBaliseLien) != startIndex);
             }
-            in.close();
+            reader.close();
         } catch (IOException e){
         }
         finally {
@@ -58,6 +57,7 @@ public class Extract {
         {
             writer = new BufferedWriter( new FileWriter( file));
             writer.write( text);
+
         }
         catch ( IOException e)
         {
