@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
@@ -10,8 +11,15 @@ import java.io.IOException;
  */
 
 public class Extract {
-    public static void main(String[] args) {
-        monFileWriter(monFileReader(args[0]), args[1]);
+    static void main(String[] args) {
+        File file = new File(args[0]);
+        if(args.length == 2)
+            if(file.exists() && !file.isDirectory())
+                monFileWriter(monFileReader(args[0]), args[1]);
+            else
+                System.out.println("Fichier d'entré n'existe pas ou le paramètre est un répertoire!");
+        else
+            System.out.println("Mauvais nombre de paramètres");
     }
     static String monFileReader(String file)
     {
@@ -42,7 +50,6 @@ public class Extract {
             String content = contentBuilder.toString();
             return content;
         }
-
     }
     static void monFileWriter(String text, String file)
     {
