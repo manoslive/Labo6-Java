@@ -14,7 +14,7 @@ public class Extract {
     public static void main(String[] args) {
         File file = new File(args[0]);
         if(args.length == 2)
-            if(file.exists() && !file.isDirectory())
+            if(file.exists()/* && !file.isDirectory()*/)
                 monFileWriter(monFileReader(args[0]), args[1]);
             else
                 System.out.println("Fichier d'entré n'existe pas ou le paramètre est un répertoire!");
@@ -34,14 +34,15 @@ public class Extract {
             String str;
             contentBuilder.append("<ul>");
             while ((str = reader.readLine()) != null) {
-                do
-                {
-                    String lien = null;
-                    startIndex = str.indexOf(startBaliseLien, startIndex);
-                    stopIndex = str.indexOf(finBaliseLien, stopIndex);
-                    lien = "<li>" + str.substring(startIndex,stopIndex)+ "</li>" + "\\n";
-                    contentBuilder.append(lien);
-                }while(str.lastIndexOf(startBaliseLien) != startIndex);
+                if(str.indexOf(startBaliseLien, startIndex) != -1) {
+                    do {
+                        String lien = null;
+                        startIndex = str.indexOf(startBaliseLien, startIndex);
+                        stopIndex = str.indexOf(finBaliseLien, stopIndex);
+                        lien = "<li>" + str.substring(startIndex, stopIndex) + "</li>" + "\\n";
+                        contentBuilder.append(lien);
+                    } while (str.lastIndexOf(startBaliseLien) != startIndex);
+                }
             }
             reader.close();
             contentBuilder.append("</ul>");
