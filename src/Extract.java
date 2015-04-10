@@ -58,7 +58,6 @@ public class Extract {
         {
             writer = new BufferedWriter( new FileWriter( file));
             writer.write( text);
-
         }
         catch ( IOException e)
         {
