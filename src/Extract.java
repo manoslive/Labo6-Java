@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 
 public class Extract {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         File file = new File(args[0]);
         if(args.length == 2)
             if(file.exists() && !file.isDirectory())
