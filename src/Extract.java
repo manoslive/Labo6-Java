@@ -29,6 +29,7 @@ public class Extract {
         String content = "";
         int startIndex = 0;
         int stopIndex = 0;
+        Boolean flagMultiLigne = false;
         StringBuilder contentBuilder = new StringBuilder();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -43,10 +44,15 @@ public class Extract {
                         stopIndex = str.indexOf(finBaliseLien, stopIndex);
                         while(stopIndex == -1)
                         {
-                            str.substring(startIndex,str.length());
+                            flagMultiLigne = true;
+                            lien += str.substring(startIndex,str.length());
                             str = reader.readLine();
                             stopIndex = str.indexOf(finBaliseLien, stopIndex);
                             // str.substring(0,stopIndex + 4);
+                        }
+                        if(flagMultiLigne)
+                        {
+                            lien += str.substring(0, stopIndex) + "</li>" + "\n";
                         }
                         lien = "<li>" + str.substring(startIndex, stopIndex) + "</li>" + "\n";
                         startIndex = stopIndex +4;
