@@ -42,12 +42,10 @@ public class Extract {
                 }while(str.lastIndexOf(startBaliseLien) != startIndex);
             }
             reader.close();
-        } catch (IOException e){
-        }
-        finally {
             contentBuilder.append("</ul>");
             String content = contentBuilder.toString();
             return content;
+        } catch (IOException e){
         }
     }
     static void monFileWriter(String text, String file)
