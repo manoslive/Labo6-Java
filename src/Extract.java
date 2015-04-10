@@ -48,7 +48,6 @@ public class Extract {
             String content = contentBuilder.toString();
             return content;
         }
-
     }
     static void monFileWriter(String text, String file)
     {
