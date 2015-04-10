@@ -42,7 +42,7 @@ public class Extract {
                         lien = "<li>" + str.substring(startIndex, stopIndex) + "</li>";
                         contentBuilder.append(lien);
                         content = contentBuilder.toString();
-                        contentBuilder.delete(0,contentBuilder.length())
+                        contentBuilder.delete(0,contentBuilder.length());
                     } while (str.lastIndexOf(startBaliseLien) != startIndex);
                 }
             }
